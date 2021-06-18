@@ -5,7 +5,7 @@ import time
 
 
 start = time.time()
-csvFile = open('output2.csv', 'a')
+csvFile = open('output.csv', 'a')
 
 # for filename in os.listdir('C:/Users/dulaj/OneDrive/Desktop/Excel to CSV/jsons'):
 for filename in os.listdir('jsons'):
@@ -42,8 +42,6 @@ for filename in os.listdir('jsons'):
                 email = ""
 
             try:
-                # if "inspection_type" in j:
-                #     if j["inspection_type"]["name"] is not None:
                 inspectionType = j["inspection_type"]["name"]
             except:
                 inspectionType = ""
@@ -51,7 +49,6 @@ for filename in os.listdir('jsons'):
             print(inspectionType)
             outputStr = orderNumber+";"+inspectionDate+";"+brandPriority+";"+email+";"+inspectionType
             csvFile.write("\n"+outputStr)
-            # print(outputStr)
     jsonFile.close()
     print("-------- Ending "+filename+" --------")
 print("\nTime taken to execute program: "+str(time.time()-start)+" Seconds")
